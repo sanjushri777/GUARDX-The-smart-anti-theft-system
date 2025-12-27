@@ -1,59 +1,96 @@
-## Title of the Project
-Small description about the project like one below
-The integration of a chatbot within a hostel booking system, aimed at streamlining the reservation process for students and improving the overall user experience.
+# GUARDX – Smart RFID Locker with App & Firebase Integration
+
+A secure smart locker system that integrates RFID-based access control with a mobile application and Firebase, aimed at safeguarding personal valuables for hostel students and individual users.
 
 ## About
-<!--Detailed Description about the project-->
-Tailored Chatbot for Hostel Booking System is a project designed to integrate a chatbot that leverages advanced natural language processing techniques to understand and respond to user queries to the hostel booking system. Traditional hostel booking processes are often time-consuming and involve manual searches and extensive communication with hostel staff. This project seeks to overcome these challenges by creating an easy-to-use chatbot interface that assists students in addressing inquiries.
+
+GUARDX is an IoT-based security system designed to provide users with controlled access to a physical locker box using an RFID card and a mobile app. Built around the ESP32 microcontroller, the system supports key functionalities such as card registration, arming/disarming the lock, intrusion detection (via IMU simulation), and real-time Firebase integration. It is ideal for hostel students, travelers, or anyone seeking compact and reliable personal security for storing valuable items.
 
 ## Features
-<!--List the features of the project as shown below-->
-- Implements advance neural network method.
-- A framework based application for deployment purpose.
-- High scalability.
-- Less time complexity.
-- A specific scope of Chatbot response model, using json data format.
+
+- RFID-based authentication for locking and unlocking
+- App-integrated arming/disarming and card registration
+- Real-time Firebase Cloud Firestore sync for status and commands
+- Motion simulation alert system (IMU) with tamper detection
+- Unauthorized access attempts trigger buzzer and alert logs
+- Master card reset and re-registration support
+- Notification and activity log tracking through the app
+- Modular, extensible, and user-friendly interface
 
 ## Requirements
-<!--List the requirements of the project as shown below-->
-* Operating System: Requires a 64-bit OS (Windows 10 or Ubuntu) for compatibility with deep learning frameworks.
-* Development Environment: Python 3.6 or later is necessary for coding the sign language detection system.
-* Deep Learning Frameworks: TensorFlow for model training, MediaPipe for hand gesture recognition.
-* Image Processing Libraries: OpenCV is essential for efficient image processing and real-time hand gesture recognition.
-* Version Control: Implementation of Git for collaborative development and effective code management.
-* IDE: Use of VSCode as the Integrated Development Environment for coding, debugging, and version control integration.
-* Additional Dependencies: Includes scikit-learn, TensorFlow (versions 2.4.1), TensorFlow GPU, OpenCV, and Mediapipe for deep learning tasks.
+
+- Microcontroller: ESP32 Dev Board
+- RFID Module: MFRC522
+- Cloud Backend: Firebase Firestore and Realtime Database
+- App Stack: React Native / Expo (or web frontend using Firebase SDK)
+- Libraries:
+  - `MFRC522.h` for RFID
+  - `WiFi.h` for ESP32 Wi-Fi control
+  - `HTTPClient.h` and `ArduinoJson.h` for Firebase REST calls
+- Power Supply: 5V USB / Battery Pack
+- Development Tools:
+  - Arduino IDE for firmware
+  - Firebase Console
+  - Expo CLI or VSCode for frontend
 
 ## System Architecture
-<!--Embed the system architecture diagram as shown below-->
 
-![Screenshot 2023-11-25 133637](https://github.com/<<yourusername>>/Hand-Gesture-Recognition-System/assets/75235455/a60c11f3-0a11-47fb-ac89-755d5f45c995)
+```
+         <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/aceacef9-e8c7-4d43-8de2-80c7c23e8f84" />
 
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/89c96c47-0d53-49b1-8641-77c6adefdd1e" />
+
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/dc5e9fd6-ea74-491b-9ca8-aeb31701b34e" />
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/caf125e8-1bab-4d30-9519-5001f5ae70f3" />
+
+
+         
+```
 
 ## Output
 
-<!--Embed the Output picture at respective places as shown below as shown below-->
-#### Output1 - Name of the output
+#### Output1 - Card Registration
 
-![Screenshot 2023-11-25 134037](https://github.com/<<yourusername>>/Hand-Gesture-Recognition-System/assets/75235455/8c2b6b5c-5ed2-4ec4-b18e-5b6625402c16)
+- User presses **Register Card** in app
+- ESP32 enters `REGISTER_CARD` state
+- Scans RFID → UID saved to Firebase
+- Response:  "Master card registered"
 
-#### Output2 - Name of the output
-![Screenshot 2023-11-25 134253](https://github.com/<<yourusername>>/Hand-Gesture-Recognition-System/assets/75235455/5e05c981-05ca-4aaa-aea2-d918dcf25cb7)
+#### Output2 - Arming and Alert
 
-Detection Accuracy: 96.7%
-Note: These metrics can be customized based on your actual performance evaluations.
+- User presses **Arm** in app
+- ESP32 waits for master card
+- After valid scan → Enters `ARMED` state
+- If unauthorized card scanned → `ALERT` triggered
+- App and buzzer notify the user
+
+#### Output3 - Disarm Flow
+
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/0b5001c8-7511-4272-bfa6-95b2f2ce7414" />
+
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/d4a01717-5d13-47b0-ab4a-0dbd7edb7885" />
+
+
+![WhatsApp Image 2025-12-27 at 8 18 25 AM](https://github.com/user-attachments/assets/1368ec42-4f9b-4f8b-ad92-c4acd1cfe3f5)
+
+![WhatsApp Image 2025-12-27 at 8 17 49 AM](https://github.com/user-attachments/assets/db1431aa-ec96-4a47-a613-2fbcd111143d)
+
+![WhatsApp Image 2025-12-27 at 8 17 48 AM](https://github.com/user-attachments/assets/aabce606-dba1-447c-b5e0-9080d3562273)
+
 
 
 ## Results and Impact
-<!--Give the results and impact as shown below-->
-The Sign Language Detection System enhances accessibility for individuals with hearing and speech impairments, providing a valuable tool for inclusive communication. The project's integration of computer vision and deep learning showcases its potential for intuitive and interactive human-computer interaction.
 
-This project serves as a foundation for future developments in assistive technologies and contributes to creating a more inclusive and accessible digital environment.
+GUARDX provides a secure, affordable, and portable solution for protecting personal belongings. With seamless app integration and cloud control, it empowers users to monitor and control their physical security remotely. The RFID and Firebase combo allows tamper alerts, activity logs, and command history, ensuring transparency and safety in environments like hostels or shared accommodations.
+
+This system serves as a blueprint for future smart-lock implementations in budget-constrained personal security domains.
 
 ## Articles published / References
-1. N. S. Gupta, S. K. Rout, S. Barik, R. R. Kalangi, and B. Swampa, “Enhancing Heart Disease Prediction Accuracy Through Hybrid Machine Learning Methods ”, EAI Endorsed Trans IoT, vol. 10, Mar. 2024.
-2. A. A. BIN ZAINUDDIN, “Enhancing IoT Security: A Synergy of Machine Learning, Artificial Intelligence, and Blockchain”, Data Science Insights, vol. 2, no. 1, Feb. 2024.
 
-
-
-
+1. M. Ayub, et al., “IoT-Based Smart Security System Using RFID and Mobile App,” *IJERT*, Vol. 10, Issue 3, 2023.  
+2. P. K. Rout, “RFID Based Locker System Using NodeMCU,” *IEEE Xplore*, 2022.  
+3. Firebase Docs: [https://firebase.google.com/docs](https://firebase.google.com/docs)  
+4. MFRC522 Arduino Library: [https://github.com/miguelbalboa/rfid](https://github.com/miguelbalboa/rfid)
