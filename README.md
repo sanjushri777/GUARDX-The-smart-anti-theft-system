@@ -35,8 +35,10 @@ GUARDX is an IoT-based security system designed to provide users with controlled
 
 ## System Architecture
 
-```
-         <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/aceacef9-e8c7-4d43-8de2-80c7c23e8f84" />
+
+ <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/aceacef9-e8c7-4d43-8de2-80c7c23e8f84" />
+         
+
 
 
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/89c96c47-0d53-49b1-8641-77c6adefdd1e" />
@@ -47,8 +49,8 @@ GUARDX is an IoT-based security system designed to provide users with controlled
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/caf125e8-1bab-4d30-9519-5001f5ae70f3" />
 
 
-         
-```
+
+
 
 ## Output
 
